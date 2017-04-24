@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="EntryLister.Views.EntryListerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EntryLister.Views"
+             xmlns:viewModels="clr-namespace:EntryLister.ViewModels"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             Width="449.333">
+
+    <UserControl.DataContext>
+        <viewModels:EntryListerViewModel />
+    </UserControl.DataContext>
+
+    <Grid
+        d:LayoutOverrides="HorizontalAlignment">
+        <Rectangle
+            Fill="#FF8B8B8B"
+            Height="1"
+            Margin="-48.834,82.021,-48.5,0"
+            Stroke="#FF8B8B8B"
+            StrokeThickness="0"
+            VerticalAlignment="Top" />
+
+        <Label
+            x:Name="PathLabel"
+            Content="Path:"
+            Margin="15.167,6.188,0,0"
+            VerticalAlignment="Top"
+            RenderTransformOrigin="0.474,0.552"
+            Height="16.166"
+            Padding="0"
+            HorizontalAlignment="Left"
+            Width="26.123" />
+
+        <TextBox
+            x:Name="Path"
+            Text="{Binding Directory.DirectoryPath, Mode=TwoWay}"
+            Margin="16,25.52,16,0"
+            Height="20"
+            VerticalAlignment="Top" />
+
+        <Button
+            x:Name="SelectFolder"
+            Content="Select Folder"
+            Margin="0,52,16,0"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Width="100.043" />
+
+        <ListBox
+            x:Name="ListBox"
+            ItemsPanel="{Binding DirectoryNameCollection, Mode=OneWay}"
+            Margin="16,93,16,10"
+            SelectionMode="Extended" />
+    </Grid>
+</UserControl>
